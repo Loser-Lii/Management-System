@@ -1,0 +1,38 @@
+# Java / Maven
+/target/
+**/target/
+
+# Node
+/node_modules/
+/front/node_modules/
+
+# Build outputs
+/dist/
+/front/dist/
+
+# Env files
+.env
+
+# Uploads and generated files
+/uploads/
+/uploads/**
+
+# IDEs
+/.vscode/
+/.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# npm
+package-lock.json
+
+# Others
+*.class
+*.jar
+*.war
