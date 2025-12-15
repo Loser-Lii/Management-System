@@ -13,5 +13,6 @@ public class LoginResponse {
     private String role;
     private String name;
     private String username;
+    private String avatar;  // 头像 URL
     private Boolean needCompleteProfile;  // 是否需要完善联系方式
 }

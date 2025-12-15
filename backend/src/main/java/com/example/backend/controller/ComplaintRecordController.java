@@ -4,11 +4,10 @@ import com.example.backend.entity.ComplaintRecord;
 import com.example.backend.service.ComplaintRecordService;
 import com.example.backend.util.Result;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/complaints")
@@ -47,12 +46,20 @@ public class ComplaintRecordController {
     public Result<List<ComplaintRecord>> findByStatus(@PathVariable String status) {
         return Result.success(complaintRecordService.findByStatus(status));
     }
-
-    @GetMapping("/date-range")
-    public Result<List<ComplaintRecord>> findByDateRange(
-            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
-            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate) {
-        return Result.success(complaintRecordService.findByDateRange(startDate, endDate));
+    
+    @GetMapping("/severity/{severity}")
+    public Result<List<ComplaintRecord>> findBySeverity(@PathVariable String severity) {
+        return Result.success(complaintRecordService.findBySeverity(severity));
+    }
+    
+    @GetMapping("/type/{type}")
+    public Result<List<ComplaintRecord>> findByType(@PathVariable String type) {
+        return Result.success(complaintRecordService.findByType(type));
+    }
+    
+    @GetMapping("/statistics")
+    public Result<Map<String, Object>> getStatistics(@RequestParam(required = false) Long salesmanId) {
+        return Result.success(complaintRecordService.getStatistics(salesmanId));
     }
 
     @GetMapping("/count/{salesmanId}")

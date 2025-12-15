@@ -31,6 +31,11 @@ public class ProductController {
         return Result.success(productService.search(keyword));
     }
 
+    @GetMapping("/next-no")
+    public Result<String> getNextProductNo() {
+        return Result.success(productService.getNextProductNo());
+    }
+
     @GetMapping("/category/{category}")
     public Result<List<Product>> findByCategory(@PathVariable String category) {
         return Result.success(productService.findByCategory(category));

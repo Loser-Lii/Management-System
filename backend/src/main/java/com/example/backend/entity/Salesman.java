@@ -48,6 +48,11 @@ public class Salesman {
     @Column(name = "commission_rate", precision = 5, scale = 4)
     private BigDecimal commissionRate;      // 基础提成比例（如0.04表示4%）
 
+    @Column(length = 20)
+    private String status;                  // 状态：active(在职)/resigned(离职)
+
+    @Column(name = "resignation_date")
+    private LocalDate resignationDate;      // 离职日期
 
     @Column(length = 500)
     private String remark;                  // 备注
@@ -62,6 +67,9 @@ public class Salesman {
     protected void onCreate() {
         createTime = LocalDateTime.now();
         updateTime = LocalDateTime.now();
+        if (status == null) {
+            status = "active";  // 默认在职状态
+        }
     }
 
     @PreUpdate

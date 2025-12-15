@@ -27,4 +27,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     // 综合搜索
     @Query("SELECT p FROM Product p WHERE p.name LIKE %:keyword% OR p.productNo LIKE %:keyword% OR p.category LIKE %:keyword%")
     List<Product> searchByKeyword(@Param("keyword") String keyword);
+
+    // 查询最新的产品（用于生成编号）
+    Product findFirstByOrderByIdDesc();
 }

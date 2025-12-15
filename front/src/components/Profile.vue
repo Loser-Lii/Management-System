@@ -267,22 +267,26 @@ const levelText = computed(() => getLevelText(form.value.level))
 const commissionText = computed(() => formatCommission(form.value.commissionRate))
 
 function getLevelText(level) {
+  if (!level) return '-'
+  const normalizedLevel = level.toLowerCase()
   const levelMap = {
     'junior': '初级销售员',
     'intermediate': '中级销售员',
     'senior': '高级销售员',
     'expert': '资深销售员'
   }
-  return levelMap[level] || '-'
+  return levelMap[normalizedLevel] || '-'
 }
 
 function getLevelClass(level) {
+  if (!level) return ''
+  const normalizedLevel = level.toLowerCase()
   return {
     'junior': 'level-junior',
     'intermediate': 'level-intermediate',
     'senior': 'level-senior',
     'expert': 'level-expert'
-  }[level] || ''
+  }[normalizedLevel] || ''
 }
 
 function formatCommission(rate) {

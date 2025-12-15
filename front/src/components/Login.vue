@@ -131,6 +131,12 @@ function validate() {
 
 async function onSubmit() {
   serverError.value = '';
+  // 已登录则阻止重复登录
+  const existingToken = localStorage.getItem('ms_token');
+  if (existingToken) {
+    serverError.value = '当前已登录，如需切换账号请先退出';
+    return;
+  }
   if (!validate()) return;
   loading.value = true;
   try {

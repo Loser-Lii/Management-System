@@ -16,6 +16,9 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, unique = true, length = 50)
+    private String customerNo;              // 客户编号（C开头的序列）
+
     @Column(nullable = false, length = 100)
     private String name;                    // 客户名称
 
@@ -43,6 +46,9 @@ public class Customer {
     @Column(length = 500)
     private String remark;                  // 备注
 
+    @Column(length = 20)
+    private String status;                  // 状态：active(启用)/inactive(停用)
+
     @Column(name = "create_time", updatable = false)
     private LocalDateTime createTime;
 
@@ -53,6 +59,9 @@ public class Customer {
     protected void onCreate() {
         createTime = LocalDateTime.now();
         updateTime = LocalDateTime.now();
+        if (status == null) {
+            status = "active";
+        }
     }
 
     @PreUpdate

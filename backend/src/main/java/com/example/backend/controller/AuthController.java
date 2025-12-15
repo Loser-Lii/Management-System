@@ -7,12 +7,17 @@ import com.example.backend.entity.Salesman;
 import com.example.backend.entity.User;
 import com.example.backend.repository.SalesmanRepository;
 import com.example.backend.repository.UserRepository;
+import com.example.backend.service.AuditLogService;
 import com.example.backend.util.Result;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 /**
@@ -23,11 +28,16 @@ import java.util.UUID;
 @CrossOrigin(origins = "http://localhost:5173")
 public class AuthController {
 
+    private static final Logger log = LoggerFactory.getLogger(AuthController.class);
+
     @Autowired
     private UserRepository userRepository;
 
     @Autowired
     private SalesmanRepository salesmanRepository;
+
+    @Autowired
+    private AuditLogService auditLogService;
 
     // 管理员注册密钥（实际项目应该放在配置文件中）
     private static final String ADMIN_REGISTER_KEY = "RHODESISLAND2024";
@@ -82,6 +92,13 @@ public class AuthController {
             user.setSalesmanId(savedSalesman.getId());
             userRepository.save(user);
 
+            // 记录审计日志
+            String description = String.format("新销售员 %s 注册成功，员工编号: %s", 
+                savedSalesman.getName(), savedSalesman.getEmployeeNo());
+            auditLogService.log("Salesman", savedSalesman.getId(), "CREATE", 
+                request.getName(), "salesman", 
+                null, savedSalesman.getEmployeeNo(), description);
+
             return Result.success("销售员注册成功", null);
         } else {
             return Result.error("无效的角色类型");
@@ -89,6 +106,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
+    @Transactional
     public Result<LoginResponse> login(@RequestBody LoginRequest request) {
         // 查找用户
         User user = userRepository.findByUsername(request.getUsername()).orElse(null);
@@ -96,8 +114,9 @@ public class AuthController {
             return Result.error("用户名或密码错误");
         }
 
+        String token = UUID.randomUUID().toString();
         LoginResponse response = new LoginResponse();
-        response.setToken(UUID.randomUUID().toString());
+        response.setToken(token);
         response.setUserId(user.getId());
         response.setRole(user.getRole());
         response.setUsername(user.getUsername());
@@ -105,8 +124,14 @@ public class AuthController {
         if ("salesman".equals(user.getRole()) && user.getSalesmanId() != null) {
             Salesman salesman = salesmanRepository.findById(user.getSalesmanId()).orElse(null);
             if (salesman != null) {
+                // 检查销售员是否已离职
+                if ("resigned".equals(salesman.getStatus())) {
+                    return Result.error("该账号已离职，无法登录");
+                }
+                
                 response.setSalesmanId(salesman.getId());
                 response.setName(salesman.getName());
+                response.setAvatar(salesman.getAvatar());  // 返回头像
                 
                 // 检查是否需要完善联系方式
                 boolean needComplete = (salesman.getQq() == null || salesman.getQq().trim().isEmpty()) &&
@@ -119,11 +144,23 @@ public class AuthController {
             response.setNeedCompleteProfile(false);
         }
 
+        // 原子更新：仅当未登录时设置登录态
+        int updated = userRepository.markLoggedIn(user.getId(), token, LocalDateTime.now());
+        log.info("login attempt userId={}, updated={} (1 means success)", user.getId(), updated);
+        if (updated == 0) {
+            return Result.error("该账号已在登录状态，请先退出后再尝试");
+        }
+
         return Result.success("登录成功", response);
     }
 
     @PostMapping("/logout")
-    public Result<Void> logout() {
+    public Result<Void> logout(@RequestHeader(value = "Authorization", required = false) String authHeader) {
+        if (authHeader != null && authHeader.startsWith("Bearer ")) {
+            String token = authHeader.substring(7);
+            int cleared = userRepository.clearLoginStateByToken(token);
+            log.info("logout with token={}, cleared={} row(s)", token, cleared);
+        }
         return Result.success("退出成功", null);
     }
 }

@@ -30,4 +30,10 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
     // 根据销售员ID和关键词搜索
     @Query("SELECT c FROM Customer c WHERE c.salesmanId = :salesmanId AND (c.name LIKE %:keyword% OR c.contactPerson LIKE %:keyword% OR c.phone LIKE %:keyword%)")
     List<Customer> searchBySalesmanIdAndKeyword(@Param("salesmanId") Long salesmanId, @Param("keyword") String keyword);
+
+    // 查询无负责人的客户
+    List<Customer> findBySalesmanIdIsNull();
+
+    // 查询最新的客户（用于生成编号）
+    Customer findFirstByOrderByIdDesc();
 }

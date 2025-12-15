@@ -35,6 +35,9 @@ public class Product {
     @Column(precision = 10, scale = 2)
     private BigDecimal price;               // 单价
 
+    @Column(length = 20)
+    private String status;                  // 状态：on_sale(在售)/discontinued(停售)
+
     @Column(length = 500)
     private String description;             // 产品描述
 
@@ -48,6 +51,9 @@ public class Product {
     protected void onCreate() {
         createTime = LocalDateTime.now();
         updateTime = LocalDateTime.now();
+        if (status == null) {
+            status = "on_sale";  // 默认在售状态
+        }
     }
 
     @PreUpdate

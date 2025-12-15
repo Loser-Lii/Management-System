@@ -15,12 +15,14 @@ public class PerformanceSuggestionDTO {
         private Long id;
         private String name;
         private String level;
+        private String avatar;
         private BigDecimal totalAmount;
         
-        public SalesmanPerformance(Long id, String name, String level, BigDecimal totalAmount) {
+        public SalesmanPerformance(Long id, String name, String level, String avatar, BigDecimal totalAmount) {
             this.id = id;
             this.name = name;
             this.level = level;
+            this.avatar = avatar;
             this.totalAmount = totalAmount;
         }
         
@@ -46,6 +48,14 @@ public class PerformanceSuggestionDTO {
         
         public void setLevel(String level) {
             this.level = level;
+        }
+        
+        public String getAvatar() {
+            return avatar;
+        }
+        
+        public void setAvatar(String avatar) {
+            this.avatar = avatar;
         }
         
         public BigDecimal getTotalAmount() {

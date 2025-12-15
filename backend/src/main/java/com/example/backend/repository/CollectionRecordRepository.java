@@ -12,15 +12,20 @@ import java.util.List;
 
 @Repository
 public interface CollectionRecordRepository extends JpaRepository<CollectionRecord, Long> {
-    List<CollectionRecord> findBySalesmanId(Long salesmanId);
-    List<CollectionRecord> findByCustomerId(Long customerId);
-    List<CollectionRecord> findByStatus(String status);
+    // ✅ 查询销售员的催款记录
+    List<CollectionRecord> findBySalesman_Id(Long salesmanId);
+
+    // ✅ 查询客户的催款记录
+    List<CollectionRecord> findByCustomer_Id(Long customerId);
+    List<CollectionRecord> findByCollectionStatus(String collectionStatus);
     List<CollectionRecord> findByCollectionDateBetween(LocalDate startDate, LocalDate endDate);
+    List<CollectionRecord> findByOrderNo(String orderNo);
     
-    // 统计回款率
-    @Query("SELECT SUM(c.amountReceived) FROM CollectionRecord c WHERE c.salesman.id = :salesmanId")
-    BigDecimal sumReceivedAmountBySalesman(@Param("salesmanId") Long salesmanId);
-    
-    @Query("SELECT SUM(c.amountDue) FROM CollectionRecord c WHERE c.salesman.id = :salesmanId")
-    BigDecimal sumDueAmountBySalesman(@Param("salesmanId") Long salesmanId);
+    // 统计总回款金额（本次回款）
+    @Query("SELECT SUM(c.currentAmount) FROM CollectionRecord c WHERE c.salesman.id = :salesmanId")
+    BigDecimal sumCurrentAmountBySalesman(@Param("salesmanId") Long salesmanId);
+
+    // 统计指定日期的催款记录数
+    @Query("SELECT COUNT(c) FROM CollectionRecord c WHERE DATE(c.createTime) = :createDate")
+    Long countByDate(@Param("createDate") LocalDate createDate);
 }

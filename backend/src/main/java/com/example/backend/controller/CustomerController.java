@@ -92,6 +92,12 @@ public class CustomerController {
         return Result.success(customerService.findByLevel(level));
     }
 
+    // 查询无负责人的客户
+    @GetMapping("/without-salesman")
+    public Result<List<Customer>> findWithoutSalesman() {
+        return Result.success(customerService.findWithoutSalesman());
+    }
+
     @PostMapping
     public Result<Customer> create(@RequestBody Customer customer) {
         return Result.success("创建成功", customerService.create(customer));
@@ -106,5 +112,11 @@ public class CustomerController {
     public Result<Void> delete(@PathVariable Long id) {
         customerService.delete(id);
         return Result.success("删除成功", null);
+    }
+
+    // 解绑客户（将负责销售员设为空）
+    @PutMapping("/{id}/unbind")
+    public Result<Customer> unbindSalesman(@PathVariable Long id) {
+        return Result.success("客户已解绑", customerService.unbindSalesman(id));
     }
 }

@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
  */
 public class CustomerDTO {
     private Long id;
+    private String customerNo;  // 客户编号
     private String name;
     private String contactPerson;
     private String phone;
@@ -26,6 +27,14 @@ public class CustomerDTO {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getCustomerNo() {
+        return customerNo;
+    }
+
+    public void setCustomerNo(String customerNo) {
+        this.customerNo = customerNo;
     }
 
     public String getName() {

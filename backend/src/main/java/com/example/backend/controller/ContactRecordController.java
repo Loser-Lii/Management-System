@@ -56,12 +56,32 @@ public class ContactRecordController {
     }
 
     @PostMapping
-    public Result<ContactRecord> create(@RequestBody ContactRecord record) {
+    public Result<ContactRecord> create(
+            @RequestParam(required = false) String role,
+            @RequestBody ContactRecord record) {
+        System.out.println("=== ContactRecord CREATE ===");
+        System.out.println("Received record: " + record);
+        System.out.println("salesmanId from virtual field: " + record.getSalesmanId());
+        System.out.println("customerId from virtual field: " + record.getCustomerId());
+        System.out.println("salesman object: " + record.getSalesman());
+        System.out.println("customer object: " + record.getCustomer());
+        
+        // 权限检查：只有销售员可以新增联络记录
+        if ("admin".equals(role)) {
+            return Result.error("权限不足：管理员不能新增联络记录");
+        }
+        
         return Result.success("创建成功", contactRecordService.create(record));
     }
 
     @PutMapping("/{id}")
     public Result<ContactRecord> update(@PathVariable Long id, @RequestBody ContactRecord record) {
+        System.out.println("=== ContactRecord UPDATE ===");
+        System.out.println("Received record: " + record);
+        System.out.println("salesmanId from virtual field: " + record.getSalesmanId());
+        System.out.println("customerId from virtual field: " + record.getCustomerId());
+        System.out.println("salesman object: " + record.getSalesman());
+        System.out.println("customer object: " + record.getCustomer());
         return Result.success("更新成功", contactRecordService.update(id, record));
     }
 

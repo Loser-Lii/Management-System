@@ -1,0 +1,2 @@
+-- 此文件已弃用
+-- 通过将 CollectionRecord 的关联字段改为 LAZY 加载来解决问题

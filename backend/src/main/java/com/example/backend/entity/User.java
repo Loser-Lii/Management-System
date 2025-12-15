@@ -25,6 +25,15 @@ public class User {
     @Column(name = "salesman_id")
     private Long salesmanId;  // 关联的销售员ID（如果是销售员角色）
 
+    @Column(name = "active_token", length = 100)
+    private String activeToken;  // 当前会话的Token
+
+    @Column(name = "is_logged_in")
+    private Boolean loggedIn = false; // 是否已登录（限制重复登录）
+
+    @Column(name = "last_login_time")
+    private LocalDateTime lastLoginTime; // 最近登录时间
+
     @Column(name = "create_time")
     private LocalDateTime createTime;
 
