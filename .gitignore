@@ -17,6 +17,9 @@
 /uploads/
 /uploads/**
 
+# DB backups
+/db_backups/
+
 # IDEs
 /.vscode/
 /.idea/

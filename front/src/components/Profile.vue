@@ -482,7 +482,7 @@ onMounted(() => {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0ea5e9 0%, #22d3ee 45%, #f59e0b 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -499,10 +499,10 @@ onMounted(() => {
   align-items: center;
   gap: 6px;
   padding: 10px 24px;
-  background: white;
-  border: 2px solid #667eea;
-  border-radius: 8px;
-  color: #667eea;
+  background: #0ea5e90f;
+  border: 2px solid rgba(14, 165, 233, 0.85);
+  border-radius: 10px;
+  color: #0ea5e9;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
@@ -511,10 +511,10 @@ onMounted(() => {
 }
 
 .upload-btn:hover {
-  background: #667eea;
-  color: white;
+  background: linear-gradient(135deg, #0ea5e9 0%, #22d3ee 45%, #f59e0b 100%);
+  color: #0b1221;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
 }
 
 .upload-btn svg {
@@ -676,8 +676,8 @@ onMounted(() => {
 .form-input:focus,
 .form-textarea:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: rgba(14, 165, 233, 0.9);
+  box-shadow: 0 10px 24px rgba(14, 165, 233, 0.18), 0 0 0 1px rgba(14, 165, 233, 0.75);
 }
 
 .form-input:disabled,
@@ -731,13 +731,13 @@ onMounted(() => {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: linear-gradient(135deg, #0ea5e9 0%, #22d3ee 45%, #f59e0b 100%);
+  color: #0b1221;
 }
 
 .btn-primary:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.35);
 }
 
 .btn-secondary:disabled,

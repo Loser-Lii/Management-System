@@ -92,25 +92,27 @@ const emit = defineEmits(['to-login'])
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: radial-gradient(circle at 15% 20%, rgba(14, 165, 233, 0.16), transparent 35%),
+              radial-gradient(circle at 80% 10%, rgba(245, 158, 11, 0.18), transparent 32%),
+              linear-gradient(145deg, #0b1221 0%, #0f172a 50%, #0b1221 100%);
   padding: 20px;
   z-index: 999;
 }
 
 .register-card {
-  background: white;
+  background: rgba(12, 17, 28, 0.86);
   border-radius: 16px;
   padding: 40px;
   width: 100%;
   max-width: 450px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.06);
 }
 
 .register-title {
   text-align: center;
   font-size: 28px;
   font-weight: 700;
-  color: #1e293b;
+  color: #e2e8f0;
   margin-bottom: 30px;
 }
 
@@ -123,25 +125,27 @@ const emit = defineEmits(['to-login'])
 .role-btn {
   flex: 1;
   padding: 12px;
-  border: 2px solid #e2e8f0;
-  background: white;
-  border-radius: 8px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
   font-size: 15px;
-  font-weight: 500;
-  color: #64748b;
+  font-weight: 600;
+  color: #cbd5e1;
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .role-btn:hover {
-  border-color: #667eea;
-  color: #667eea;
+  border-color: rgba(14, 165, 233, 0.8);
+  color: #0ea5e9;
+  box-shadow: 0 8px 20px rgba(14, 165, 233, 0.24);
 }
 
 .role-btn.active {
-  border-color: #667eea;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  border-color: rgba(14, 165, 233, 0.9);
+  background: linear-gradient(135deg, #0ea5e9 0%, #22d3ee 45%, #f59e0b 100%);
+  color: #0b1221;
+  box-shadow: 0 12px 28px rgba(14, 165, 233, 0.28);
 }
 
 .register-form {
@@ -158,22 +162,25 @@ const emit = defineEmits(['to-login'])
 
 .form-group label {
   font-size: 14px;
-  font-weight: 500;
-  color: #334155;
+  font-weight: 600;
+  color: #cbd5e1;
 }
 
 .form-group input {
   padding: 12px 16px;
-  border: 2px solid #e2e8f0;
-  border-radius: 8px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 10px;
   font-size: 15px;
   transition: all 0.2s;
+  background: rgba(255, 255, 255, 0.04);
+  color: #e2e8f0;
 }
 
 .form-group input:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: rgba(14, 165, 233, 0.9);
+  box-shadow: 0 10px 28px rgba(14, 165, 233, 0.25), 0 0 0 1px rgba(14, 165, 233, 0.7);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .hint {
@@ -184,37 +191,39 @@ const emit = defineEmits(['to-login'])
 
 .register-btn {
   padding: 14px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: linear-gradient(135deg, #0ea5e9 0%, #22d3ee 45%, #f59e0b 100%);
+  color: #0b1221;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.3s;
   margin-top: 10px;
+  box-shadow: 0 10px 28px rgba(14, 165, 233, 0.32);
 }
 
 .register-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 12px 30px rgba(14, 165, 233, 0.4);
 }
 
 .register-footer {
   text-align: center;
   margin-top: 24px;
   font-size: 14px;
-  color: #64748b;
+  color: #94a3b8;
 }
 
 .link {
-  color: #667eea;
-  font-weight: 600;
+  color: #f59e0b;
+  font-weight: 700;
   cursor: pointer;
   text-decoration: none;
 }
 
 .link:hover {
   text-decoration: underline;
+  color: #22d3ee;
 }
 </style>

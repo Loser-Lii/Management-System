@@ -631,8 +631,8 @@ onMounted(load);
 .confirm-message { margin: 18px 0 22px 0; font-size: 15px; color: #444; text-align: center; }
 .modal-actions { display: flex; gap: 12px; justify-content: center; margin-top: 8px; }
 .modal-actions button { min-width: 100px; padding: 8px 14px; border-radius: 8px; border: none; cursor: pointer; font-weight: 600; }
-.modal-actions .primary { background: linear-gradient(180deg,#5b8cff,#3b6cff); color: #fff; }
-.modal-actions .muted { background: #f3f6fb; color: #446; }
+.modal-actions .primary { background: linear-gradient(135deg, #0ea5e9 0%, #22d3ee 45%, #f59e0b 100%); color: #0b1221; box-shadow: 0 8px 18px rgba(14, 165, 233, 0.24); }
+.modal-actions .muted { background: #ffffff; color: #475569; border: 1px solid #e2e8f0; }
 
 .toast { position: fixed; left: 50%; top: 80px; transform: translateX(-50%); display: flex; align-items: center; gap: 12px; padding: 12px 20px; border-radius: 10px; color: #fff; z-index: 2000; animation: slideDown 0.3s ease-out; }
 @keyframes slideDown { from { opacity: 0; transform: translateX(-50%) translateY(-20px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }

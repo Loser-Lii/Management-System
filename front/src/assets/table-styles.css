@@ -26,8 +26,8 @@
 
 .toolbar input:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: var(--primary);
+  box-shadow: 0 10px 22px rgba(14, 165, 233, 0.18), 0 0 0 1px rgba(14, 165, 233, 0.75);
 }
 
 .toolbar select {
@@ -37,7 +37,7 @@
   border: 1px solid #e2e8f0;
   font-size: 14px;
   background: white;
-  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23667eea' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%230ea5e9' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 12px center;
   background-size: 12px;
@@ -49,14 +49,14 @@
 }
 
 .toolbar select:hover {
-  border-color: #667eea;
-  background-color: #f8f9ff;
+  border-color: var(--primary);
+  background-color: #ecfeff;
 }
 
 .toolbar select:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: var(--primary);
+  box-shadow: 0 10px 22px rgba(14, 165, 233, 0.18), 0 0 0 1px rgba(14, 165, 233, 0.75);
 }
 
 .toolbar select.filter-select {
@@ -68,7 +68,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  background: #f8f9ff;
+  background: #ecfeff;
   padding: 6px 12px;
   border-radius: 8px;
   border: 1px solid #e2e8f0;
@@ -76,13 +76,13 @@
 }
 
 .toolbar .date-group:hover {
-  border-color: #667eea;
-  background-color: #f0f2ff;
+  border-color: var(--primary);
+  background-color: #e0f7ff;
 }
 
 .toolbar .date-group label {
   font-size: 12px;
-  color: #667eea;
+  color: #0ea5e9;
   font-weight: 500;
   white-space: nowrap;
   margin: 0;
@@ -104,14 +104,14 @@
 }
 
 .toolbar input[type="date"].date-input:hover {
-  border-color: #667eea;
-  background-color: #f8f9ff;
+  border-color: var(--primary);
+  background-color: #ecfeff;
 }
 
 .toolbar input[type="date"].date-input:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: var(--primary);
+  box-shadow: 0 10px 22px rgba(14, 165, 233, 0.18), 0 0 0 1px rgba(14, 165, 233, 0.75);
 }
 
 .toolbar input[type="date"].date-input::-webkit-calendar-picker-indicator {
@@ -121,21 +121,21 @@
 
 .toolbar button {
   padding: 10px 20px;
-  border-radius: 8px;
+  border-radius: 10px;
   border: none;
-  background: #667eea;
-  color: white;
+  background: linear-gradient(135deg, #0ea5e9 0%, #22d3ee 45%, #f59e0b 100%);
+  color: #0b1221;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.2s;
   white-space: nowrap;
+  box-shadow: 0 8px 18px rgba(14, 165, 233, 0.26);
 }
 
 .toolbar button:hover {
-  background: #5568d3;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 10px 22px rgba(14, 165, 233, 0.32);
 }
 
 /* 表格容器 */
@@ -151,7 +151,7 @@
 
 /* 表头样式 */
 .table thead {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0ea5e9 0%, #22d3ee 45%, #f59e0b 100%);
 }
 
 .table th {
@@ -336,8 +336,8 @@
 .form-row select:focus,
 .form-row textarea:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: var(--primary);
+  box-shadow: 0 10px 22px rgba(14, 165, 233, 0.18), 0 0 0 1px rgba(14, 165, 233, 0.75);
 }
 
 .form-row textarea {
@@ -366,13 +366,13 @@
 }
 
 .modal-actions button:first-child {
-  background: #667eea;
-  color: white;
+  background: linear-gradient(135deg, #0ea5e9 0%, #22d3ee 45%, #f59e0b 100%);
+  color: #0b1221;
 }
 
 .modal-actions button:first-child:hover {
-  background: #5568d3;
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  background: linear-gradient(135deg, #0ea5e9 0%, #22d3ee 45%, #f59e0b 100%);
+  box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3);
 }
 
 .modal-actions button.muted {

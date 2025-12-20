@@ -579,22 +579,28 @@ onMounted(() => {
 }
 
 .btn-save {
-  background: #6366f1;
-  color: #fff;
+  background: linear-gradient(135deg, #0ea5e9 0%, #22d3ee 45%, #f59e0b 100%);
+  color: #0b1221;
+  box-shadow: 0 8px 20px rgba(14, 165, 233, 0.26);
+  border-radius: 10px;
 }
 
 .btn-save:hover {
-  background: #4f46e5;
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+  box-shadow: 0 10px 24px rgba(14, 165, 233, 0.32);
+  transform: translateY(-1px);
 }
 
 .btn-cancel {
-  background: #9ca3af;
-  color: #fff;
+  background: #ffffff;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
 }
 
 .btn-cancel:hover {
-  background: #6b7280;
+  background: #f8fafc;
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.12);
 }
 
 /* --- 1. 分段控制器样式 (修复版) --- */
@@ -624,7 +630,7 @@ onMounted(() => {
 
 .segment-item.active {
   background: white;
-  color: #667eea;
+  color: #0ea5e9;
   font-weight: 600;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
@@ -732,8 +738,8 @@ onMounted(() => {
 .confirm-message { margin: 18px 0 22px 0; font-size: 15px; color: #444; text-align: center; white-space: pre-line; }
 .modal-actions { display: flex; gap: 12px; justify-content: center; margin-top: 8px; }
 .modal-actions button { min-width: 100px; padding: 8px 14px; border-radius: 8px; border: none; cursor: pointer; font-weight: 600; }
-.modal-actions .primary { background: linear-gradient(180deg, #5b8cff, #3b6cff); color: #fff; }
-.modal-actions .muted { background: #f3f6fb; color: #446; }
+.modal-actions .primary { background: linear-gradient(135deg, #0ea5e9 0%, #22d3ee 45%, #f59e0b 100%); color: #0b1221; box-shadow: 0 8px 18px rgba(14, 165, 233, 0.24); }
+.modal-actions .muted { background: #ffffff; color: #475569; border: 1px solid #e2e8f0; }
 
 /* 操作按钮样式 */
 .action-btn-small {

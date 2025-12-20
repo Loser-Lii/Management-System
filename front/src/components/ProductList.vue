@@ -375,14 +375,14 @@ onMounted(load);
 /* 按钮统一样式 */
 .modal-actions { display: flex; justify-content: center; gap: 12px; padding-top: 20px; margin-top: 20px; border-top: 1px solid #e5e7eb; }
 .modal-actions button { min-width: 100px; padding: 10px 24px; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 14px; transition: all 0.2s; }
-.btn-save { background: #6366f1; color: #fff; }
-.btn-save:hover { background: #4f46e5; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4); }
-.btn-cancel { background: #9ca3af; color: #fff; }
-.btn-cancel:hover { background: #6b7280; }
+.btn-save { background: linear-gradient(135deg, #0ea5e9 0%, #22d3ee 45%, #f59e0b 100%); color: #0b1221; box-shadow: 0 8px 20px rgba(14, 165, 233, 0.26); border-radius: 10px; }
+.btn-save:hover { box-shadow: 0 10px 24px rgba(14, 165, 233, 0.32); transform: translateY(-1px); }
+.btn-cancel { background: #ffffff; color: #475569; border: 1px solid #e2e8f0; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+.btn-cancel:hover { background: #f8fafc; box-shadow: 0 4px 12px rgba(14, 165, 233, 0.12); }
 
 .confirm-dialog { max-width: 520px; padding: 22px; }
 .confirm-dialog h3 { font-size: 20px; margin: 0 0 6px 0; }
 .confirm-message { margin: 18px 0 22px 0; font-size: 15px; color: #444; text-align: center; }
-.modal-actions .primary { background: linear-gradient(180deg, #5b8cff, #3b6cff); color: #fff; }
-.modal-actions .muted { background: #f3f6fb; color: #446; }
+.modal-actions .primary { background: linear-gradient(135deg, #0ea5e9 0%, #22d3ee 45%, #f59e0b 100%); color: #0b1221; box-shadow: 0 8px 18px rgba(14, 165, 233, 0.24); }
+.modal-actions .muted { background: #ffffff; color: #475569; border: 1px solid #e2e8f0; }
 </style>

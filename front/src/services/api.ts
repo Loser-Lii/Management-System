@@ -270,4 +270,9 @@ export const auditLogApi = {
   getOperatorLogs: (operator: string) => api.get(`/audit-logs/operator/${operator}`)
 }
 
+// ==================== 管理接口（备份/恢复） ====================
+export const adminApi = {
+  listBackups: () => api.get('/admin/backups')
+}
+
 export default api

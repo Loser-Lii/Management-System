@@ -878,10 +878,10 @@ onMounted(async () => {
   z-index: 0;
   overflow: hidden;
   background:
-    radial-gradient(1200px 700px at 20% 10%, rgba(102, 126, 234, 0.35), transparent 55%),
-    radial-gradient(900px 600px at 85% 25%, rgba(124, 58, 237, 0.28), transparent 55%),
-    radial-gradient(900px 600px at 60% 90%, rgba(16, 185, 129, 0.18), transparent 55%),
-    linear-gradient(180deg, rgba(36, 36, 36, 0.15), rgba(36, 36, 36, 0.55));
+    radial-gradient(1200px 700px at 20% 10%, rgba(14, 165, 233, 0.35), transparent 55%),
+    radial-gradient(900px 600px at 85% 25%, rgba(34, 211, 238, 0.28), transparent 55%),
+    radial-gradient(900px 600px at 60% 90%, rgba(245, 158, 11, 0.2), transparent 55%),
+    linear-gradient(180deg, rgba(12, 18, 33, 0.22), rgba(12, 18, 33, 0.6));
 }
 
 .fx-orb {
@@ -897,7 +897,7 @@ onMounted(async () => {
 .fx-orb--a {
   left: -160px;
   top: -180px;
-  background: radial-gradient(circle at 30% 30%, rgba(102, 126, 234, 0.75), rgba(118, 75, 162, 0.0) 60%);
+  background: radial-gradient(circle at 30% 30%, rgba(14, 165, 233, 0.72), rgba(34, 211, 238, 0.0) 60%);
 }
 
 .fx-orb--b {
@@ -905,7 +905,7 @@ onMounted(async () => {
   top: 120px;
   width: 620px;
   height: 620px;
-  background: radial-gradient(circle at 30% 30%, rgba(124, 58, 237, 0.65), rgba(102, 126, 234, 0.0) 62%);
+  background: radial-gradient(circle at 30% 30%, rgba(34, 211, 238, 0.6), rgba(14, 165, 233, 0.0) 62%);
   animation-delay: -3s;
 }
 
@@ -914,7 +914,7 @@ onMounted(async () => {
   bottom: -260px;
   width: 680px;
   height: 680px;
-  background: radial-gradient(circle at 30% 30%, rgba(16, 185, 129, 0.42), rgba(16, 185, 129, 0.0) 65%);
+  background: radial-gradient(circle at 30% 30%, rgba(245, 158, 11, 0.32), rgba(245, 158, 11, 0.0) 65%);
   animation-delay: -6s;
 }
 
@@ -954,7 +954,7 @@ onMounted(async () => {
 
 /* 欢迎横幅 */
 .welcome-banner {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0ea5e9 0%, #22d3ee 45%, #f59e0b 100%);
   border-radius: 16px;
   padding: 32px;
   margin-bottom: 24px;
@@ -962,7 +962,7 @@ onMounted(async () => {
   justify-content: space-between;
   align-items: center;
   color: white;
-  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.35);
+  box-shadow: 0 10px 30px rgba(14, 165, 233, 0.35);
   animation: slideInDown 0.6s ease-out;
   position: relative;
   overflow: hidden;
@@ -1039,7 +1039,7 @@ onMounted(async () => {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(600px 200px at 10% 0%, rgba(102, 126, 234, 0.10), transparent 60%);
+  background: radial-gradient(600px 200px at 10% 0%, rgba(14, 165, 233, 0.12), transparent 60%);
   opacity: 0;
   transition: opacity 0.25s ease;
 }
@@ -1085,7 +1085,7 @@ onMounted(async () => {
 }
 
 .card-blue .card-icon {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0ea5e9 0%, #22d3ee 100%);
   color: white;
 }
 
@@ -1095,7 +1095,7 @@ onMounted(async () => {
 }
 
 .card-purple .card-icon {
-  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
   color: white;
 }
 
@@ -1167,13 +1167,14 @@ onMounted(async () => {
   overflow: hidden;
 }
 
+
 .panel::before {
   content: '';
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(500px 200px at 20% 0%, rgba(124, 58, 237, 0.10), transparent 60%),
-    radial-gradient(500px 200px at 85% 20%, rgba(16, 185, 129, 0.08), transparent 60%);
+    radial-gradient(500px 200px at 20% 0%, rgba(14, 165, 233, 0.12), transparent 60%),
+    radial-gradient(500px 200px at 85% 20%, rgba(245, 158, 11, 0.12), transparent 60%);
   opacity: 0.0;
   transition: opacity 0.25s ease;
 }
@@ -1279,13 +1280,13 @@ onMounted(async () => {
 
 .panel-link {
   font-size: 14px;
-  color: #667eea;
+  color: #0ea5e9;
   text-decoration: none;
   transition: color 0.2s;
 }
 
 .panel-link:hover {
-  color: #5a67d8;
+  color: #f59e0b;
 }
 
 .badge {
@@ -1333,7 +1334,7 @@ onMounted(async () => {
 .sales-amount {
   font-size: 16px;
   font-weight: 600;
-  color: #667eea;
+  color: #0ea5e9;
 }
 
 /* 待办列表 */
@@ -1415,7 +1416,7 @@ onMounted(async () => {
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0ea5e9 0%, #22d3ee 45%, #f59e0b 100%);
   color: white;
   display: flex;
   align-items: center;
